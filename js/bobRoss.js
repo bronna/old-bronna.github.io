@@ -178,14 +178,6 @@ const drawChart = metric => {
         .attr("fill", "#34495e")
         .style("font-size", "1.2em")
         .html("# Paintings")
-    
-    const label = bounds.append("text")
-        .attr("x", dimensions.boundedWidth + 5)
-        .attr("y", -18)
-        .attr("fill", "#34495e")
-        .style("font-size", ".95em")
-        .style("opacity", "0.85")
-        .html("With:")
 
  //Other Chart Labels
     const title = bounds.append("text")
