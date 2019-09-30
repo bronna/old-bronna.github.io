@@ -1,211 +1,63 @@
 <!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="debounce.js"></script>
-  <style>
-    body { 
-      font-family: "avenir next", Arial, sans-serif;
-      font-size: 12px;
-      margin: 0;
-      color: #666;
-    }
+<html lang="en">
+    <head>
+        <title>Data Visualizations by Brianna Wilson Green</title>
+        
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/stylesWorld.css">
+        <link rel="stylesheet" href="./css/stylesIncarceration.css">
+    </head>
+    <body>
+        <header class="title">
+            <h1>Data Visualizations</h1>
+            <h2><span class="small"> &nbsp;&nbsp;by</span> &nbsp;Brianna Wilson Green</h2>
+        </header>
+        
+        <section id="visualizations" class="visualizations">
+            <div id="elapsingLine" class="viz"></div>
+            
+            <div id="bobross" class="viz"></div>
 
-    #vis {
-      min-width: 300px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
+            <div id="incarceration" class="incarceration viz">
+            <div id="tooltipIR" class="tooltipIR">
+                <div class="incarceration-country" id="incarceration-country"></div>
+                <div class="incarceration-value" id="incarceration-value">
+                </div>
+            </div>
+            </div>
 
-    .axis path, .axis line {
-      fill: none;
-      stroke: #666;
-      shape-rendering: crispEdges;
-    }
+            <!-- <div id="climate" class="viz"></div> -->
 
-    .line {
-      fill: none;
-      stroke-width: 1.5px;
-    }
+            <div id="barCharts" class="viz"></div>
 
-    #line-Highlight {
-      stroke-width: 2px;
-    }
+            <div id="worldMap" class="worldMap viz">
+            <div id="tooltipWorld" class="tooltipWorld">
+                <div class="tooltip-country" id="country"></div>
+                <div class="tooltip-value">
+                    <span id="value"></span>
+                </div>
+            </div>
+            </div>
+        </section>
+            
+        <footer class="footer">
+            <div class="about footer-element">
+                <h4>Brianna Wilson Green</h4>
+                <p>Former mechanical engineer turned data visualization designgineer. Was a Product Design Engineer for the first 3 iPads at Apple. B.S. Engineering, Product Design from Stanford University.</p>
+            </div>
+            
+            <div class="contact footer-element">
+                <a href="https://www.linkedin.com/in/briannagreen" target="_blank" class="contactLink">LinkedIn</a>
+                <a href="mailto:bronna@gmail.com" target="_blank" class="contactLink">Email</a>
+            </div>
+        </footer>
 
-    .baseline {
-      stroke: #666;
-    }
-  </style>
-</head>
-
-<body>
-<h1>Hi</h1>
-<div id='vis'></div>
-  
-<script>
-const margin = { top: 50, right: 70, bottom: 30, left: 50 };
-
-const $chart = d3.select('#vis');
-const $svg = $chart.append('svg');
-const $plot = $svg.append('g')
-  .attr('transform', `translate(${margin.left}, ${margin.top})`);
-
-const parseDate = d3.timeParse('%Y');
-
-// set up scales
-const x = d3.scaleTime();
-const y = d3.scaleLinear();
-
-const colour = d3.scaleOrdinal(d3.schemeCategory10);
-
-const xAxis = d3.axisBottom()
-  .scale(x)
-  .ticks(5);
-
-const yAxis = d3.axisLeft()
-  .scale(y)
-  .ticks(10);
-
-const line = d3.line()
-  .x(d => x(d.date))
-  .y(d => y(d.value))
-  .curve(d3.curveMonotoneX);
-
-function render() {
-
-  const width = parseInt($chart.node().offsetWidth) - margin.left - margin.right;
-  const height = parseInt(width * 0.6) - margin.top - margin.bottom;
-
-  $svg.attr('width', width + margin.left + margin.right)
-    .attr('height', height + margin.top + margin.bottom);
-
-  x.range([0, width]);
-  y.range([height, 0]);
-
-  $plot.select('.axis.x')
-    .attr('transform', `translate(0, ${height})`)
-    .call(xAxis)
-    .select('.domain').remove();
-
-  $plot.select('.axis.y')
-    .call(yAxis)
-    .call(g => g.select('.tick:last-of-type text').clone()
-      .attr('x', 3)
-      .attr('text-anchor', 'start')
-      .attr('font-weight', 600)
-      .text('$ billion'))
-    .select('.domain').remove();
-
-  $plot.select('.baseline')
-    .attr('x1', 0)
-    .attr('x2', width)
-    .attr('y1', y(0))
-    .attr('y2', y(0))
-    .attr('fill', 'none')
-    .attr('stroke', '#000')
-    .attr('stroke-width', '1px')
-    .attr('shape-rendering', 'crispEdges')
-    .attr('stroke-dasharray', '3, 3')
-
-  const path = $plot.selectAll('path')
-    .attr('d', d => line(d.values))
-    .attr('stroke', d => colour(d.name))
-    .attr('opacity', d => d.name == 'Highlight' ? 1 : 0.5)
-    .attr('id', (d, i) => `line-${d.name}`)
-
-  path.each((d, i) => {
-    const sel = d3.select(`#line-${d.name}`);
-    const length = sel.node().getTotalLength();
-
-    sel.attr('stroke-dasharray', `${length} ${length}`)
-      .attr('stroke-dashoffset', length)
-      .transition()
-        .duration(5000)
-        .attr('stroke-dashoffset', 0)
-  })
-
-  $plot.selectAll('.line-label')
-    .attr('transform', d => {
-      return `translate(${x(d.value.date)}, ${y(d.value.value)})`;
-    })
-    .attr('x', 5)
-    .attr('dy', '.35em')
-    .attr('fill', d => colour(d.name))
-    .attr('font-weight', d => d.name == 'Highlight' ? 700 : 400)
-    .text(d => d.name)
-    .attr('opacity', 0)
-    .transition()
-      .delay(4000)
-      .duration(200)
-      .attr('opacity', 1)
-}
-
-function bindData(rawdata) {
-  // column headings, for each line
-  const keys = rawdata.columns.filter(key => key != 'year');
-
-  rawdata.forEach(d => {
-    d.year = parseDate(d.year);
-  })
-
-  const data = keys.map(name => {
-    return {
-      name,
-      values: rawdata.map(d => {
-        return {date: d.year, value: +d[name]};
-      })
-    }
-  });
-
-  colour.domain(keys);
-
-  x.domain(d3.extent(rawdata, d => d.year));
-  y.domain([
-    d3.min(data, c => d3.min(c.values, v => v.value)),
-    d3.max(data, c => d3.max(c.values, v => v.value))
-  ]).nice();
-
-  // bind data to DOM elements
-  const $lines = $plot.append('g')
-    .attr('class', 'lines')
-    .selectAll('.line')
-    .data(data)
-    .enter()
-    .append('g')
-    .attr('class', 'line')
-
-  $lines.append('path')
-    .attr('class', 'path')
-
-  $lines.append('text')
-    .datum(d => {
-      return {
-        name: d.name,
-        value: d.values[d.values.length - 1]
-      }
-    })
-    .attr('class', 'line-label')
-    .attr('opacity', 0)
-
-  $plot.append('g')
-    .attr('class', 'axis x');
-
-  $plot.append('g')
-    .attr('class', 'axis y');
-
-  $plot.append('line')
-    .attr('class', 'baseline')
-  
-  window.addEventListener('resize', debounce(render, 200));
-  render();
-}
-
-function init() {
-  d3.csv('dummy-data.csv').then(bindData);
-}
-
-init();
-
-</script>
-</body>
-
+        <script src="./../../d3.v5.js"></script>
+        <script src="./js/bobRoss.js"></script>
+        <script src="./js/incarceration.js"></script>
+        <script src="./js/barCharts.js"></script>
+        <script src="./js/elapsingLine.js"></script>
+        <script src="./js/worldMap.js"></script>
+    </body>
+</html>

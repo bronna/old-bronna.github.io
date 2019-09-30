@@ -1,0 +1,135 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 16px;
+    color: rgba(20.4, 28.6, 36.9, 0.6);
+    background: #f7f9fb;
+    letter-spacing: .1em;
+}
+
+header {
+    line-height: .85;
+    /*border-style: solid;
+    border-width: 0 0 4px 0;
+    border-color: salmon;*/
+}
+
+.visualizations {
+        align-items: center;
+}
+
+h1 {
+    font-size: 1.5em;
+    display: inline-block;
+    color: #34495e;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.small {
+    color: rgba(20.4, 28.6, 36.9, 0.4);
+    font-size: .8em;
+    text-transform: lowercase;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 1.3em;
+    display: inline-block;
+    color: rgba(20.4, 28.6, 36.9, 0.6);
+    letter-spacing: 0em;
+}
+
+.viz {
+    /*background: #fff;*/
+    /*background: linear-gradient(rgba(255,255,255,1),rgba(255,255,255,.5));*/
+    margin: 80px 0;
+    padding: 60px 0;
+    /*border-radius: 20px;*/
+    border: 0;
+    /*box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);*/
+}
+
+.allAxes {
+    font-size: 0.75em;
+    opacity: 0.85;
+}
+
+.bobross-axis path {
+    opacity: 0.5;
+}
+
+.bobross-axis line {
+    display: none;
+}
+
+.selectedGroup:hover {
+    cursor: pointer;
+}
+
+.bin rect {
+    fill: #8c80b3;
+}
+
+.mean {
+    stroke: black;
+    stroke-dasharray: 2px 4px;
+}
+
+.x-axis-label {
+    fill: #505050;
+    font-size: 1.4em;
+    text-transform: capitalize;
+}
+
+button {
+    font-size: 1em;
+    position: absolute;
+    margin-left: 32em;
+    margin-top: 26em;
+    width: 80px;
+    padding: 0.5em 0.5em;
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(140,128,179,.15);
+    color: #8c80b3;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+}
+
+button:hover,
+button:focus {
+    background: rgba(140,128,179,.25);
+    transform: translateY(1px);
+}
+
+.climateXAxis path {
+    display: none;
+}
+
+.climateYAxis path {
+    display: none;
+}
+
+.sourceLabel {
+    font-size: 0.75em;
+    opacity: 0.7;
+    fill: #34495e;
+    letter-spacing: 0.01em;
+}
+
+.footer-element {
+    display: inline-block;
+}
+
+.contactLink {
+    text-decoration: none;
+    color: rgba(20.4, 28.6, 100, 0.6);
+    font-weight: 900;
+    padding: 0 20px 0 0 ;
+}
