@@ -17,7 +17,7 @@ async function drawScatter() {
         margin: {
             top: 50,
             right: 50,
-            bottom: 80,
+            bottom: 90,
             left: 170,
         },
     }
@@ -111,11 +111,23 @@ async function drawScatter() {
         .style("font-size", "1.2em")
         .attr("fill", "#34495e")
     
+    const xAxisLabel = xAxis.append("text")
+        .attr("x", dimensions.boundedWidth / 2)
+        .attr("y", dimensions.margin.bottom - 45)
+        .attr("fill", "#34495e")
+        .style("font-size", "1.2em")
+        .html("Per 1000 People")
+    
     const sourceLabel = bounds.append("text")
         .attr("class", "sourceLabel")      
         .attr("x", dimensions.boundedWidth - 290)
-        .attr("y", dimensions.boundedHeight + 70)
+        .attr("y", dimensions.boundedHeight + 65)
         .html("Data: Global Peace Index, Institute for Economics & Peace")
+    const sourceLabel2 = bounds.append("text")
+        .attr("class", "sourceLabel")      
+        .attr("x", dimensions.boundedWidth - 290)
+        .attr("y", dimensions.boundedHeight + 80)
+        .html("and World Prison Brief")
     
   //Interactions
     dots.on("mouseenter", onMouseEnter)
@@ -143,7 +155,7 @@ async function drawScatter() {
         
         const x = activeX
             + dimensions.margin.left
-        const y = 160-50 //fix
+        const y = 130
             + dimensions.margin.bottom
         
         tooltipIR.style("transform", `translate(`

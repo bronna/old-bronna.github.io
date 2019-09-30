@@ -22,7 +22,7 @@ async function drawLineChart() {
     margin: {
       top: 65,
       right: 100,
-      bottom: 50,
+      bottom: 53,
       left: 150,
     },
   }
@@ -144,18 +144,9 @@ async function drawLineChart() {
     .attr("x", dimensions.boundedWidth / 2)
     .attr("y", -50)
     .attr("text-anchor", "middle")
-    .text("Carbon dioxide emissions")
+    .text("How Responsible are Rich Countries for Climate Change?")
     .attr("font-weight", 900)
     .style("font-size", "1.2em")
-    .attr("fill", "#34495e")
-  
-  const byLine = bounds.append("text")
-    .attr("x", dimensions.boundedWidth / 2)
-    .attr("y", -30)
-    .attr("text-anchor", "middle")
-    .text("in metric tons per person")
-    .attr("font-weight", 400)
-    .style("font-size", "1em")
     .attr("fill", "#34495e")
   
   const highLabel = bounds.append("text")
@@ -166,7 +157,7 @@ async function drawLineChart() {
     .attr("font-weight", 400)
     .style("font-size", "1em")
     .attr("fill", "#f28e2c")
-    .attr("opacity", "0.7")
+    .attr("opacity", "0.8")
     .attr("letter-spacing", "0.4")
   
   const midLabel = bounds.append("text")
@@ -177,7 +168,7 @@ async function drawLineChart() {
     .attr("font-weight", 400)
     .style("font-size", "1em")
     .attr("fill", "#af7aa1")
-    .attr("opacity", "0.7")
+    .attr("opacity", "0.8")
     .attr("letter-spacing", "0.4")
     
   const lowLabel = bounds.append("text")
@@ -188,8 +179,17 @@ async function drawLineChart() {
     .attr("font-weight", 400)
     .style("font-size", "1em")
     .attr("fill", "#76b7b2")
-    .attr("opacity", "0.7")
+    .attr("opacity", "0.8")
     .attr("letter-spacing", "0.4")
+  
+const yAxisLabel = yAxis.append("text")
+    .attr("x", -dimensions.boundedHeight / 2)
+    .attr("y", -dimensions.margin.left + 100)
+    .style("font-size", "1em")
+    .text("CO2 emitted / person (metric tons)")
+    .style("transform", "rotate(-90deg)")
+    .style("text-anchor", "middle")
+    .attr("fill", "#34495e")
   
   const sourceLabel = bounds.append("text")
     .attr("class", "sourceLabel")      

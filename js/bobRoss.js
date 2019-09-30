@@ -68,10 +68,10 @@ async function drawLineChart() {
             "#7fa3bd",//"#76b7b2",
             "#9a8a9f",//"#af7aa1",
             "#5d90a9",//"#f28e2c",
-            "#cf8e4f",//"#e15759",
-            "#d1cf42",//"#59a14f","#ff9da7",
-            "#739c6d",//"#edc949",
-            "#be6464",//"#9c755f",
+            "#f28e2c",//"#e15759",
+            "#edc949",//"#59a14f","#ff9da7",
+            "#59a14f",//"#edc949",
+            "#ff9da7",//"#9c755f",
             "#6cb0b3",//"#ff9da7",
             "#4e79a7",
         ])
@@ -123,7 +123,7 @@ const drawChart = metric => {
         .attr("d", d => areaGenerator(dataset))
         .attr("class", "selectedArea")
         .attr("fill", elementColor(metric))
-        .attr("opacity", ".25")
+        .attr("opacity", ".2")
     
     const lineGenerator = d3.line().curve(d3.curveBasis)
         .x(d => xScale(xAccessor(d)))
@@ -135,7 +135,7 @@ const drawChart = metric => {
         //.attr("stroke", `url(#${gradientId})`)
         .attr("stroke", elementColor(metric))
         .attr("stroke-width", 2)
-        .attr("opacity", ".3")
+        .attr("opacity", ".4")
     
   // Labels
     const elementLabel = elementGroup.append("text")
@@ -213,7 +213,7 @@ const drawChart = metric => {
     
     function onMouseEnter() {
         allGroups.transition().duration(transitionDuration)
-            .style("opacity", 0.3)
+            .style("opacity", 0.15)
         
         const hoveredGroup = d3.select(this)
             .transition().duration(transitionDuration)

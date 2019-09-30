@@ -140,12 +140,6 @@ async function drawBars() {
     const xAxisLabel = xAxis.select(".x-axis-label")
         .text(metric)
         .attr("y", dimensions.margin.bottom - 30)
-    
-    const sourceLabel = bounds.append("text")
-        .attr("class", "sourceLabel")      
-        .attr("x", dimensions.boundedWidth - 157)
-        .attr("y", dimensions.boundedHeight + 65)
-        .html("Data: The Dark Sky Company")
   }
   
   const title = bounds.append("text")
@@ -158,13 +152,19 @@ async function drawBars() {
     .attr("fill", "#34495e")
     
   const byLine = bounds.append("text")
-        .attr("x", dimensions.boundedWidth / 2)
-        .attr("y", -55)
-        .attr("text-anchor", "middle")
-        .text("In 2017 (Sunnyvale, CA)")
-        .attr("font-weight", 400)
-        .style("font-size", "1em")
-        .attr("fill", "#34495e")
+    .attr("x", dimensions.boundedWidth / 2)
+    .attr("y", -55)
+    .attr("text-anchor", "middle")
+    .text("In 2017 (Sunnyvale, CA)")
+    .attr("font-weight", 400)
+    .style("font-size", "1em")
+    .attr("fill", "#34495e")
+  
+  const sourceLabel = bounds.append("text")
+    .attr("class", "sourceLabel")      
+    .attr("x", dimensions.boundedWidth - 157)
+    .attr("y", dimensions.boundedHeight + 65)
+    .html("Data: The Dark Sky Company")
 
   const metrics = [
     "windSpeed",
