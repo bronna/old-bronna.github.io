@@ -1,2 +1,2 @@
 # personal-website
-Projects and Thoughts
+Data Visualization Projects
