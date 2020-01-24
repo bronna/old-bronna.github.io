@@ -1,0 +1,78 @@
+body {
+    /*font-family: 'Source Sans Pro', sans-serif;*/
+    font-family: 'Walter Turncoat', sans-serif;
+    letter-spacing: 0.03em;
+    text-align: center;
+    font-size: 14px;
+    color: #262626;
+}
+
+#ceoPayRatio {
+    margin-top: 30px;
+}
+
+#clickerWrapper {
+    display: block;
+    margin: 30px auto;
+    visibility: auto;
+}
+
+#progress {
+    position: relative;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#clicker {
+    position: relative;
+    top: -45px;
+    font-size: 30px;
+    cursor: pointer;
+    width: 30%;
+    margin: 0 auto;
+}
+
+.headline {
+    font-size: 40px;
+    text-anchor: middle;
+}
+
+.explanation {
+    font-size: 26px;
+    text-anchor: middle;
+}
+
+.axis path {
+    display: none;
+}
+
+.axis {
+    font-size: 12px;
+}
+
+#y-axis {
+    opacity: 0.13;
+}
+
+.source-label {
+    text-anchor: end;
+    font-size: 12px;
+}
+
+.ratio-label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.amount-label {
+    font-size: 18px;
+}
+
+.caption {
+    font-size: 22px;
+    text-anchor: middle;
+}
+
+tspan.highlight {
+    font-size: 40px;
+}
