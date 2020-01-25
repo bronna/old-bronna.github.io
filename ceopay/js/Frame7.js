@@ -12,10 +12,10 @@ async function Frame7() {
 ////Update caption text
     
     captionBox.transition().duration(fade)
-        .attr("height", 190)
+        .attr("height", 165)
     
     middleTextTop.attr("opacity", 0)
-    changeTopText(newText = "If the ceo-to-worker pay ratio were the same now as it was a half-century ago, you would only need to work...",
+    changeTopText(newText = "If, by the hour, the ceo-to-worker pay ratio had remained the same, you would only need to work...",
 	loc = 4/2, delayDisappear = 0, delayAppear = 1, finalText = true, xloc = (dimensions.boundedWidth / 2 + 35), w = 230);
     
 /////////////////////////////////////////////////////////
