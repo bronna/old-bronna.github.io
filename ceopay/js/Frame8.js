@@ -20,7 +20,7 @@ async function Frame8() {
     changeBottomText(newText = "",
 	loc = 1/2, delayDisappear = 0, delayAppear = 1, finalText = true, xloc = dimensions.boundedWidth / 2, w = 350);
     
-    let sourceTitle = bounds.append("text")
+    let sourceTitle1 = bounds.append("text")
         .attr("x", dimensions.boundedWidth / 2)
         .attr("y", dimensions.boundedHeight / 2 + 100)
         .text("Data Source:")
@@ -30,7 +30,7 @@ async function Frame8() {
         .attr("text-anchor", "middle")
         .attr("opacity", 0)
     
-    let source = bounds.append("text")
+    let source1 = bounds.append("text")
         .attr("x", dimensions.boundedWidth / 2)
         .attr("y", dimensions.boundedHeight / 2 + 130)
         .html("'CEO compensation, CEO-to-worker compensation ratio, and stock prices (2018$), selected years, 1965-2018' Lawrence Mishel and Julia Wolfe at Economic Policy Institute")
@@ -39,6 +39,26 @@ async function Frame8() {
         .attr("text-anchor", "middle")
         .call(wrap, 350)
         .attr("opacity", 0) 
+    
+    let sourceTitle2 = bounds.append("text")
+        .attr("x", dimensions.boundedWidth / 2)
+        .attr("y", dimensions.boundedHeight / 2 + 250)
+        .text("Code Inspiration:")
+        //.attr("fill", colors[0])
+        .attr("font-size", "14px")
+        .style("text-transform", "uppercase")
+        .attr("text-anchor", "middle")
+        .attr("opacity", 0)
+    
+    let source2 = bounds.append("text")
+        .attr("x", dimensions.boundedWidth / 2)
+        .attr("y", dimensions.boundedHeight / 2 + 280)
+        .html("'Switching between phone brands' by Nadieh Bremer")
+        //.attr("fill", colors[0])
+        .attr("font-size", "14px")
+        .attr("text-anchor", "middle")
+        .call(wrap, 350)
+        .attr("opacity", 0)
     
 //https://www.epi.org/publication/ceo-compensation-2018/
         
@@ -55,9 +75,14 @@ async function Frame8() {
     d3.selectAll(".caption-big").remove()
     d3.selectAll(".caption-big-bg").remove()
     
-//Make source label visible
-    sourceTitle.transition().delay(fade*8).duration(fade)
+//Make source labels visible
+    sourceTitle1.transition().delay(fade*8).duration(fade)
         .attr("opacity", 1)
-    source.transition().delay(fade*8).duration(fade)
+    source1.transition().delay(fade*8).duration(fade)
+        .attr("opacity", 1)
+    
+    sourceTitle2.transition().delay(fade*8).duration(fade)
+        .attr("opacity", 1)
+    source2.transition().delay(fade*8).duration(fade)
         .attr("opacity", 1)
 }
