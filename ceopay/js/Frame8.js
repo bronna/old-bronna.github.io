@@ -14,7 +14,7 @@ async function Frame8() {
         .attr("class", "explanation")
         .attr("fill", "black")
         .attr("opacity", 0)
-    changeTopText(newText = "So the next time you only want to go to work for the first 36 minutes of the day, you can feel a little justified.",
+    changeTopText(newText = "So the next time you only want to be at work for the first 36 minutes of the day, you can feel a little justified.",
 	loc = 4/2, delayDisappear = 0, delayAppear = 1, finalText = true, xloc = dimensions.boundedWidth / 2, w = 350);
     
     changeBottomText(newText = "",
