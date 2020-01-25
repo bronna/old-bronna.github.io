@@ -129,9 +129,9 @@ async function Frame3() {
 /////////////////////////////////////////////////////////
 ////Update caption text
     captionBox.transition().duration(fade)
-        .attr("height", 115)
+        .attr("height", 165)
     caption
-        .html("Over the next 53 years, average CEO pay exploded.")
+        .html("Over the next 53 years, while worker wages made modest gains, average CEO pay exploded.")
         .call(wrap, 230) //figure out how to keep this function from removing the highlight class
         .transition().duration(fade*5).attr("opacity", 1)
     
