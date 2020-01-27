@@ -43,7 +43,7 @@ async function Frame8() {
     let sourceTitle2 = bounds.append("text")
         .attr("x", dimensions.boundedWidth / 2)
         .attr("y", dimensions.boundedHeight / 2 + 250)
-        .text("Code Inspiration:")
+        .text("Data Viz Inspiration:")
         //.attr("fill", colors[0])
         .attr("font-size", "14px")
         .style("text-transform", "uppercase")
