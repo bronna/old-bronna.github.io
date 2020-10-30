@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Seashell Generator</title>
+		<meta name="viewport" content="width=device-width">
+		<style>
+			html, body {
+				margin: 0;
+				height: 100%;
+				/* background: radial-gradient(#6dd5ed, #387989); */
+				/* background: linear-gradient(#2b9fb9, #335367); */
+				/* background: #2b4556; */
+				background: #374650;
+			}
+
+			canvas {
+				width: 100%;
+				height: 100%;
+				display: block;
+				cursor: move;
+				cursor: grab;
+				position: fixed;
+			}
+
+			canvas:active {
+				cursor: move;
+				cursor: grabbing;
+			}
+
+			.variaboard-panel {
+			  font-family: monospace;
+			}
+
+			@keyframes slide-in {
+			  100% {
+			    opacity: 1;
+			    transform: translateY(0);
+			    visibility: visible;
+			  }
+			}
+		</style>
+		<link rel="stylesheet" href="css/variaboard.css">
+	</head>
+
+	<body>
+
+		<div id="container"></div>
+
+		<script src="js/three.min.js"></script>
+		<script src="js/OrbitControls.js"></script>
+		<script src="js/variaboard.js"></script>
+		<script src="js/stats.min.js"></script>
+		<script src="https://rawgithub.com/mrdoob/three.js/r104/examples/js/utils/BufferGeometryUtils.js"></script>
+		<script src="js/shellline4.js"></script>
+
+	</body>
+
+</html>
