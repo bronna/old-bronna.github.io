@@ -144,7 +144,7 @@ async function drawLineChart() {
     .attr("x", dimensions.boundedWidth / 2)
     .attr("y", -50)
     .attr("text-anchor", "middle")
-    .text("How Responsible are Rich Countries for Climate Change?")
+    .text("How do Rich Countries Contribute to Climate Change?")
     .attr("font-weight", 900)
     .style("font-size", "1.2em")
     .attr("fill", "#34495e")
