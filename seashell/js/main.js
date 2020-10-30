@@ -128,16 +128,16 @@ function setupGui() {
     eased: false
   })
 
-  gui.addRange({
-    id: 'alpha',
-    title: 'Spiral angle',
-    description: 'Angle of the equiangular spiral - offset from the tangent of a circle',
-    min: 1,
-    max: 90,
-    step: 0.1,
-    default: 83,
-    eased: false
-  })
+//   gui.addRange({
+//     id: 'alpha',
+//     title: 'Spiral angle',
+//     description: 'Angle of the equiangular spiral - offset from the tangent of a circle',
+//     min: 1,
+//     max: 90,
+//     step: 0.1,
+//     default: 83,
+//     eased: false
+//   })
 
   gui.addRange({
     id: 'phi',
@@ -180,34 +180,7 @@ function setupGui() {
   //     reset()
   //   }
   // })
-  // gui.addRange({
-  //   id: 'lightness',
-  //   title: 'Lightness',
-  //   description: 'Overall lightness of lines',
-  //   min: 0,
-  //   max: 100,
-  //   step: 1,
-  //   default: 60,
-  //   eased: false
-  // })
-  //
-  // gui.addButton({
-  //   id: 'randomize',
-  //   title: 'Randomize',
-  //   description: 'Set all controls to random values',
-  //   callback: () => {
-  //     gui.randomize()
-  //   }
-  // })
-  //
-  // gui.addButton({
-  //   id: 'generate',
-  //   title: 'Generate',
-  //   description: 'Generate a new flower',
-  //   callback: () => {
-  //     reset()
-  //   }
-  // })
+ 
 }
 
 function drawShell() {
@@ -224,7 +197,8 @@ function drawShell() {
   let theta = 0 //start angle
   let coils = gui.get('coils') //number coils
   let t = 2*Math.PI * coils //end angle
-  let alpha = gui.get('alpha') * (Math.PI/180) //angle of tangent (offset from 90 degrees)
+  let alpha = 83  * (Math.PI/180) //angle of tangent (offset from 90 degrees)
+  //let alpha = gui.get('alpha') * (Math.PI/180)
   let beta = gui.get('beta') * (Math.PI/180) //enlarging angle in z
 
   // ellipse section variables - the ribs
