@@ -7,6 +7,10 @@
         <link rel="stylesheet" href="./css/styles.css">
         <link rel="stylesheet" href="./css/stylesWorld.css">
         <link rel="stylesheet" href="./css/stylesIncarceration.css">
+        <link rel="stylesheet" href="./css/stylesBarCharts.css">
+        <link rel="stylesheet" href="./css/stylesClimate.css">
+
+        <script src="https://kit.fontawesome.com/06e4565879.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header class="title">
@@ -15,43 +19,98 @@
         </header>
         
         <section id="visualizations" class="visualizations">
-            <div id="elapsingLine" class="viz"></div>
-            
-            <div id="bobross" class="viz"></div>
 
-            <div id="incarceration" class="incarceration viz">
-            <div id="tooltipIR" class="tooltipIR">
-                <div class="incarceration-country" id="incarceration-country"></div>
-                <div class="incarceration-value" id="incarceration-value">
+            <div id="seashell" class="viz">
+                <a href="https://observablehq.com/@bronna/parametric-seashell" class="image-link">
+                    <img src="/assets/seashell.png" alt="Wireframe model of a parametric seashell" class="thumbnail">
+                </a>
+                <div class="description">
+                    <h3>Parametric Seashell</h3>
+                    <p class="dtext">Nature as engineer and artist. I strove to dive deep into just one of the countless ways we find mathematics in nature.</p>
+                    <p class="dtext">This was also an opportunity to dive into 3D on the web, which took me back to my roots as a mechanical engineer who loves to design in CAD. I wrote the first iteration in three.js, but had to pare back features because of the heavy computational needs. Fortunately, an expert guided me to regl and I ended up learning glsl and WebGL to create something much more in-line with my original vision.</p>
                 </div>
             </div>
-            </div>
 
-            <!-- <div id="climate" class="viz"></div> -->
-
-            <div id="barCharts" class="viz"></div>
-
-            <div id="worldMap" class="worldMap viz">
-            <div id="tooltipWorld" class="tooltipWorld">
-                <div class="tooltip-country" id="country"></div>
-                <div class="tooltip-value">
-                    <span id="value"></span>
+            <div id="bobRoss" class="viz">
+                <a href="/bobross" class="image-link">
+                    <img src="/assets/bobross.png" alt="Layered area charts resembling a landscape painting" class="thumbnail">
+                </a>
+                <div class="description">
+                    <h3>How Bob Ross's Paintings Changed (and Didn't) Over Time</h3>
+                    <p class="dtext">After finding this dataset I got inspired to make a chart that would mimic one of Bob Ross's beautiful landscape paintings. Like in a forest, the audience has to explore layer upon layer to find insights, which I evoked with overlapping transparent area graphs that fade in and out as the reader sifts through.</p>
+                    <p class="dtext">I found that in the first 17 seasons of Ross's show he didn't seem to have a consistent pattern of elements. In the last 15 seasons, however, he settled into a steady rhythm. Season 17 is also the most different season, perhaps reflecting a turning point in his life or approach to his craft.</p>
                 </div>
             </div>
+
+            <div id="incarceration" class="viz">
+                <a href="/incarceration" class="image-link">
+                    <img src="/assets/incarceration.png" alt="Beeswarm plot of countries in the world sorted by incarceration rate" class="thumbnail">
+                </a>
+                <div class="description">
+                    <h3>Which Countries Have the Highest Incarceration Rate?</h3>
+                    <p class="dtext">After seeing this data I realized that a simple and engaging visualization could show how extreme the incarceration system in the US is. The original data had many categories of metrics, but this one seemed to be the most telling. Sometimes less data is more.</p>
+                    <p class="dtext">I learned d3-force to create a dynamic beeswarm plot, with a color scheme going from sunny-yellow to inflamed-red. It highlights how extreme incarceration has become, with the US being in the company of authoritarian and oppressive regimes.</p>
+                </div>
             </div>
+
+            <!-- <div id="climate" class="viz">
+                <a href="/climate" class="image-link">
+                    <img src="/assets/climate.png" alt="Triple-line graph showing that high income countries emit significantly more CO2 than others" class="thumbnail">
+                </a>
+                <div class="description">
+                    <h3>Where do Greenhouse Gases Come From?</h3>
+                    <p class="dtext">I'm highly interested in visualizing climate change, which is right at the intersection of the natural world and human societies. This was my first attempt at climate visualization and a stepping stone to what I hope are more eloquent ones in the future. I tried to find a unique angle, and learned techniques such as drawing an animated line to suggest the passage of time along the x-axis.</p>
+                </div>
+            </div> -->
+
+            <div id="weather" class="viz">
+                <a href="/weather" class="image-link">
+                    <img src="/assets/weather.png" alt="Line graphs showing weather metrics for Portland and NYC in the year 2020" class="thumbnail">
+                </a>
+                <div class="description">
+                    <h3>2020 Weather Patterns in Portland and New York</h3>
+                    <p class="dtext">I started this visualization by comparing Pacific Northwest and California cities. Curiously, the data presented similar numbers, making it look like those climates are essentially the same. I can say from first-hand experience that they're not! This struck me as a telling instance of data visualization's limitations—that there's a lot that can only be captured by lived experience. So, instead I swapped in an East Coast city to highlight more extreme weather patterns.</p>
+                    <p class="dtext">This visualization I adapted from Amelia Wattenberger's book, 'Fullstack D3' and it was a great exercise in learning how to update the data in a chart with event callbacks.</p>
+                </div>
+            </div>
+
+            <div id="internet" class="viz">
+                <a href="/internet" class="image-link">
+                    <img src="/assets/internet.png" alt="Map of world with gradations of color showing internet access in 2017" class="thumbnail">
+                </a>
+                <div class="description">
+                    <h3>Population With Internet Access in 2017</h3>
+                    <p class="dtext">In this chart I learned how to combine country data with geographical data. Internet access has its pros and cons, so I thought it would be interesting to see how it varies around the world. Maps are also right at the intersection of the natural world and human society, so I'm excited to make more use of them.</p>
+                </div>
+            </div>
+
+            <div id="ceopay" class="viz">
+                <a href="/ceopay" class="image-link">
+                    <img src="/assets/ceopay.png" alt="How CEO and worker pay changed over time" class="thumbnail">
+                </a>
+                <div class="description">
+                    <h3>CEO vs. Worker Pay Over Time</h3>
+                    <p class="dtext">This is part visualization/part slide deck. My goal was to create a storytelling experience that would guide an audience through the data surrounding CEO and worker pay over the years. I wanted to explore ways to draw a reader through. In the end, I think this went too far in thinking for the audience rather than showing the audience, but I learned a lot in the process and have used what I learned in other ways, like with the seashell explorable up top.</p>
+                </div>
+            </div>
+
         </section>
             
         <footer class="footer">
             <div class="about footer-element">
-                <p>Brianna is a <strong>product design engineer</strong> who uses <strong>data visualization and 3D technologies</strong> to <strong>tell compelling stories about the natural world</strong>.
-                <p class="resume">Formal education: <strong>B.S. Engineering: Product Design</strong>, at <strong>Stanford</strong>
+                <p><strong>Brianna is a product design engineer who uses data visualization and 3D technologies to tell compelling stories about society and the natural world.</strong></p>
+                <!-- <p class="resume">Education: <strong>B.S. Engineering: Product Design, Stanford</strong>
                 <br>Commercial experience: Product Design Engineer at <strong>Apple</strong> for the <strong>first three iPads</strong>
-                <br>Entrepreneurial experience: <strong>Playnks Toys</strong> (fort kit for imaginary play)</p>
+                <br>Entrepreneurial experience: <strong>Playnks Toys</strong> (fort kit for imaginary play)</p> -->
             </div>
             
             <div class="contact footer-element">
-                <a href="https://www.linkedin.com/in/briannagreen" target="_blank" class="contactLink">LinkedIn</a>
-                <a href="mailto:bronna@gmail.com" target="_blank" class="contactLink">Email</a>
+                
+                <a href="https://twitter.com/bronna" target="_blank" class="contactLink"><i class="fab fa-twitter"></i> Twitter</a>
+                
+                <a href="https://www.linkedin.com/in/briannagreen" target="_blank" class="contactLink"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+
+                <a href="mailto:bronna@gmail.com" target="_blank" class="contactLink"><i class="fas fa-envelope"></i> Email</a>
             </div>
         </footer>
 
@@ -63,3 +122,4 @@
         <script src="./js/worldMap.js"></script>
     </body>
 </html>
+
