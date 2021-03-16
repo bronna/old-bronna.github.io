@@ -1,0 +1,24 @@
+#chartTitle {
+    display: inline-block;
+    margin-top: 0px;
+}
+
+.weatherButton {
+    margin-left: 10%;
+    margin-top: 0em;
+    width: 80px;
+    background: rgba(140,128,179,.15);
+    color: #8c80b3;
+    transition: all 0.1s ease-out;
+}
+
+.weatherButton:hover,
+.weatherButton:focus {
+    background: rgba(140,128,179,.25);
+    transform: translateY(1px);
+}
+
+#chartSource {
+    /* position: absolute;
+    bottom: 0; */
+}
