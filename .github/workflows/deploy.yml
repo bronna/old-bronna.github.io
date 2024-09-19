@@ -1,0 +1,43 @@
+name: Deploy to GitHub Pages
+
+   on:
+     push:
+       branches: ["main"]
+     workflow_dispatch:
+
+   jobs:
+     build_site:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Checkout
+           uses: actions/checkout@v3
+           # This step clones your repository
+
+         - name: Install Node.js
+           uses: actions/setup-node@v3
+           with:
+             node-version: 18
+             cache: npm
+           # Sets up Node.js environment
+
+         - name: Install dependencies
+           run: npm install
+           # Installs your project dependencies
+
+         - name: Build
+           env:
+             BASE_PATH: '/${{ github.event.repository.name }}'
+           run: |
+             npm run build
+             touch build/.nojekyll
+           # This step builds your SvelteKit project
+
+         - name: Upload Artifacts
+           uses: actions/upload-pages-artifact@v1
+           with:
+             path: 'build/'
+           # Uploads the built files for deployment
+
+     deploy:
+       needs: build_site
+       # ... (deployment steps)
